@@ -1,7 +1,6 @@
 from machine import Pin
 
-led_pins = [Pin(2, Pin.OUT), Pin(3, Pin.OUT), Pin(4, Pin.OUT), Pin(5, Pin.OUT),Pin(6, Pin.OUT)]
-
+led_pins = [Pin(6, Pin.OUT),Pin(5, Pin.OUT), Pin(4, Pin.OUT), Pin(3, Pin.OUT), Pin(2, Pin.OUT)]
 
 # Function for binary addition
 def binary_addition(number_1, number_2):
@@ -9,11 +8,14 @@ def binary_addition(number_1, number_2):
     carry = 0
 
     for i in range(3, -1, -1):
+        
         bit_total = int(number_1[i]) + int(number_2[i]) + carry
+        print(bit_total,i)
         if bit_total == 0 or bit_total == 1:
             total = str(bit_total) + total
             carry = 0
             led_pins[i].value(bit_total)
+            
         elif bit_total == 2:
             total = "0" + total
             carry = 1
@@ -30,12 +32,6 @@ def binary_addition(number_1, number_2):
 while True:
 
     number_1 = input("Enter a 4-bit binary number: ")
-    number_2 = input("Enter a 2nd 4-bit binary number: ")
-    binary_addition(number_1, number_2)
-    
-
-
-
 
 
 

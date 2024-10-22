@@ -16,7 +16,7 @@ counter = 0
 
 def update_leds(value):
     """
-    Updates the LEDs to represent the binary value of the counter.
+    Updates the LEDs to represent the binary value of the counter using bitwise manipulation.
     """
     led_1.value((value >> 0) & 1)
     led_2.value((value >> 1) & 1)
